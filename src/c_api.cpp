@@ -39,7 +39,7 @@ __declspec(dllexport)
 void add_rectangle(Rectpack_Data *data, int width, int height)
 {
     std::vector<rect_xywh> *rectangles = (std::vector<rect_xywh>*)data->rectangles;
-    rectangles->emplace_back(rect_xywh(0, 0, width, height));
+    rectangles->emplace_back(rect_xywh(-1, -1, width, height));
 }
 
 struct Rectpack_Result
