@@ -269,12 +269,12 @@ namespace rectpack2D {
 				if (const auto ret = root.insert(rect.get_wh())) {
 					rect = *ret;
 
-					if (callback_result::ABORT_PACKING == input.handle_successful_insertion(rect)) {
+					if (callback_result::ABORT_PACKING == input.handle_successful_insertion(rect, input.user_data)) {
 						break;
 					}
 				}
 				else {
-					if (callback_result::ABORT_PACKING == input.handle_unsuccessful_insertion(rect)) {
+					if (callback_result::ABORT_PACKING == input.handle_unsuccessful_insertion(rect, input.user_data)) {
 						break;
 					}
 				}

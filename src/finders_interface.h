@@ -22,6 +22,7 @@ namespace rectpack2D {
 		F handle_successful_insertion;
 		G handle_unsuccessful_insertion;
 		const flipping_option flipping_mode;
+		void *user_data;
 	};
 
 	template <class F, class G>
@@ -30,14 +31,16 @@ namespace rectpack2D {
 		const int discard_step,
 		F&& handle_successful_insertion,
 		G&& handle_unsuccessful_insertion,
-		const flipping_option flipping_mode
+		const flipping_option flipping_mode,
+		void *user_data
 	) {
 		return finder_input<F, G> { 
 			max_bin_side, 
 			discard_step, 
 			std::forward<F>(handle_successful_insertion),
 			std::forward<G>(handle_unsuccessful_insertion),
-			flipping_mode
+			flipping_mode,
+			user_data
 		};
 	};
 
